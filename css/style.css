@@ -1,17 +1,77 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap");
 :root {
-  --green: #075744;
-  --green-dark: #063e33;
-  --green-deep: #052f29;
-  --green-light: #eaf2ed;
-  --cream: #f7f4eb;
-  --gold: #d7b56d;
-  --red: #9b332a;
-  --ink: #20342e;
-  --muted: #687872;
-  --line: #dfe7e0;
-  --white: #fff;
-  --shadow: 0 14px 35px rgba(5, 47, 41, 0.09);
+    --color-primary: #075B46;
+    --color-primary-dark: #034536;
+    --color-primary-light: #0B765A;
+    --color-primary-soft: #E8F3EE;
+
+    --color-secondary: #C9A66B;
+    --color-secondary-dark: #A9854B;
+    --color-secondary-light: #E4D2AC;
+
+    --color-accent: #B8322A;
+    --color-accent-dark: #8F251F;
+    --color-accent-light: #F8EAE7;
+
+    --color-background: #F8F7F2;
+    --color-background-white: #FFFFFF;
+    --color-background-cream: #F2EDE1;
+    --color-background-green: #EDF4EF;
+
+    
+    --color-text: #24352F;
+    --color-text-dark: #17372D;
+    --color-text-secondary: #68766F;
+    --color-text-muted: #929B95;
+    --color-text-white: #FFFFFF;
+
+    --color-border: #DCE5DE;
+    --color-border-light: #EAEDE8;
+    --color-border-dark: #B8C9BE;
+
+    /* ==============================
+       WARNA STATUS
+    ============================== */
+    --color-success: #21865D;
+    --color-success-bg: #E6F4EC;
+
+    --color-warning: #C58A27;
+    --color-warning-bg: #FFF4D9;
+
+    --color-danger: #C0392B;
+    --color-danger-bg: #FCEAE8;
+
+    --color-info: #3478A5;
+    --color-info-bg: #E8F2FA;
+
+    /* ==============================
+       SHADOW
+    ============================== */
+    --shadow-sm: 0 2px 8px rgba(23, 55, 45, 0.06);
+    --shadow-md: 0 8px 24px rgba(23, 55, 45, 0.10);
+    --shadow-lg: 0 16px 40px rgba(23, 55, 45, 0.14);
+
+    /* ==============================
+       GRADIENT
+    ============================== */
+    --gradient-primary: linear-gradient(
+        135deg,
+        #034536 0%,
+        #075B46 100%
+    );
+
+    --gradient-hero: linear-gradient(
+        90deg,
+        rgba(3, 38, 30, 0.85) 0%,
+        rgba(3, 38, 30, 0.45) 60%,
+        rgba(3, 38, 30, 0.10) 100%
+    );
+
+    --gradient-accent: linear-gradient(
+        135deg,
+        #075B46 0%,
+        #0B765A 100%
+    );
 }
 * {
   box-sizing: border-box;

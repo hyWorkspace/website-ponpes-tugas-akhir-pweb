@@ -23,7 +23,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.75}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
   .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
@@ -61,21 +61,35 @@
   .side a:hover{background:var(--green-100);color:var(--green-800)}
   .side a.active{background:var(--green-800);color:#fff}
 
-  .content section{margin-bottom:40px;scroll-margin-top:90px}
-  .content h2{font-family:'Lora',serif;font-size:24px;color:var(--green-900);margin-bottom:14px}
-  .content p{color:var(--muted);margin-bottom:10px}
-  .content ul{list-style:none;display:grid;gap:12px}
-  .content li{
+  .content section{margin-bottom:44px;scroll-margin-top:90px}
+  .content h2{font-family:'Lora',serif;font-size:26px;color:var(--green-900);margin-bottom:14px}
+  .content p{color:var(--muted);margin-bottom:12px}
+  .content .lead{color:var(--ink)}
+
+  /* Kartu program */
+  .programs{list-style:none;display:grid;gap:14px;margin-top:18px;counter-reset:prog}
+  .programs li{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    padding:14px 18px 14px 46px;position:relative;color:var(--ink);font-size:15px
+    padding:18px 20px 18px 68px;position:relative;counter-increment:prog;
+    transition:box-shadow .2s,transform .2s;
   }
-  .content li::before{
-    content:"✓";position:absolute;left:16px;top:14px;width:20px;height:20px;border-radius:50%;
-    background:var(--green-100);color:var(--green-800);font-size:12px;font-weight:700;display:grid;place-items:center
+  .programs li:hover{box-shadow:0 6px 18px rgba(11,61,46,.08);transform:translateY(-2px)}
+  .programs li::before{
+    content:counter(prog);position:absolute;left:18px;top:18px;width:36px;height:36px;border-radius:50%;
+    background:var(--green-800);color:#fff;font-family:'Lora',serif;font-weight:700;display:grid;place-items:center
   }
+  .programs h3{font-size:16px;color:var(--green-900);margin-bottom:4px;line-height:1.4}
+  .programs p{font-size:14.5px;margin:0}
+
+  /* Kotak sorotan */
+  .highlight{
+    margin-top:16px;padding:16px 20px;border-left:4px solid var(--green-600);
+    background:var(--green-100);border-radius:0 var(--radius) var(--radius) 0;color:var(--green-900);font-size:15px
+  }
+  .highlight p{color:var(--green-900);margin:0}
 
   .photo{
-    margin-top:12px;height:300px;border-radius:var(--radius);overflow:hidden;position:relative;
+    margin-top:18px;height:300px;border-radius:var(--radius);overflow:hidden;position:relative;
     /* Ganti dengan foto Anda: url('images/santri-belajar.jpg') */
     background:linear-gradient(135deg,#d9d3c4,#8fa597);
     background-size:cover;background-position:center;
@@ -150,27 +164,57 @@
   </nav>
 
   <div class="content">
+
+    <!-- ===== PROGRAM PENDIDIKAN ===== -->
     <section id="program">
       <h2>Program Pendidikan</h2>
-      <ul>
-        <li>Program Pembelajaran Agama (Ta'lim) &amp; Pengajian Kitab Kuning</li>
-        <li>Program Pesantren Entrepreneur / Kewirausahaan Berbasis Media Sosial</li>
-        <li>Program Pembinaan Santri Pelajar (SMP/SMA/SMK) dan Mahasiswa</li>
-      </ul>
+      <p class="lead">Pondok Pesantren Annashiiha Salatiga menyelenggarakan berbagai program pendidikan yang memadukan pendidikan keislaman, pembinaan karakter, serta pengembangan kemandirian santri. Program yang diselenggarakan meliputi:</p>
+
+      <ol class="programs">
+        <li>
+          <h3>Program Pembelajaran Agama (Ta'lim) dan Pengajian Kitab Kuning</h3>
+          <p>Program ini menjadi bagian utama dalam pendidikan pesantren yang berfokus pada pendalaman ilmu keislaman melalui kegiatan ta'lim dan pengajian kitab kuning. Santri dibimbing untuk memahami ajaran agama sekaligus menerapkannya dalam kehidupan sehari-hari.</p>
+        </li>
+        <li>
+          <h3>Program Pesantren Entrepreneur</h3>
+          <p>Pondok Pesantren Annashiiha mengembangkan program kewirausahaan sebagai upaya membentuk santri yang memiliki kemandirian ekonomi dan keterampilan berwirausaha. Kegiatan entrepreneur juga memanfaatkan media sosial sebagai sarana pembelajaran, promosi, dan pengembangan usaha.</p>
+        </li>
+        <li>
+          <h3>Program Pembinaan Santri Pelajar dan Mahasiswa</h3>
+          <p>Program ini ditujukan bagi santri yang berasal dari jenjang SMP, SMA/SMK, hingga perguruan tinggi. Pembinaan diarahkan untuk membantu santri menyeimbangkan pendidikan formal dengan pendidikan keagamaan dan kehidupan pesantren.</p>
+        </li>
+        <li>
+          <h3>Program Ngaji Rutinan Selapan</h3>
+          <p>Kegiatan ngaji rutinan selapan menjadi salah satu kegiatan keagamaan yang dilaksanakan secara berkala. Program ini menjadi sarana untuk memperkuat pemahaman keagamaan sekaligus mempererat hubungan antara santri, pengasuh, pengajar, dan masyarakat.</p>
+        </li>
+      </ol>
     </section>
 
+    <!-- ===== KURIKULUM ===== -->
     <section id="kurikulum">
       <h2>Kurikulum</h2>
-      <p>Integrasi kurikulum keagamaan tradisional pesantren (seperti kajian kitab Ta'limul Muta'allim) dengan pembelajaran ilmu kewirausahaan.</p>
+      <p class="lead">Kurikulum Pondok Pesantren Annashiiha Salatiga mengintegrasikan kurikulum keagamaan tradisional pesantren dengan pembelajaran kewirausahaan dan pemasaran digital.</p>
+      <p>Dalam bidang keagamaan, santri mendapatkan pembelajaran melalui kajian kitab-kitab pesantren, salah satunya Ta'limul Muta'allim, yang membahas adab dan tata cara dalam menuntut ilmu.</p>
+      <p>Sementara itu, dalam bidang kewirausahaan, santri diperkenalkan dengan berbagai keterampilan yang berkaitan dengan wirausaha, pemasaran digital, dan pemanfaatan media sosial.</p>
+      <div class="highlight">
+        <p>Integrasi tersebut diharapkan dapat memberikan keseimbangan antara penguasaan ilmu keagamaan dengan keterampilan yang dapat diterapkan dalam kehidupan dan dunia kerja.</p>
+      </div>
     </section>
 
+    <!-- ===== METODE PEMBELAJARAN ===== -->
     <section id="metode">
       <h2>Metode Pembelajaran</h2>
-      <p>Pengajian metode sorogan/bandongan untuk ilmu keagamaan, serta pelatihan dan pengajian proyek bisnis mandiri berbasis target omzet melalui praktik kewirausahaan.</p>
+      <p class="lead">Metode pembelajaran yang diterapkan di Pondok Pesantren Annashiiha disesuaikan dengan karakteristik masing-masing bidang pendidikan.</p>
+      <p>Dalam pembelajaran keagamaan, digunakan metode sorogan dan bandongan. Metode tersebut menjadi bagian dari tradisi pembelajaran pesantren yang memungkinkan santri mempelajari dan memahami isi kitab secara langsung dengan bimbingan pengajar.</p>
+      <p>Sementara dalam pembelajaran kewirausahaan, santri mendapatkan pelatihan dan praktik melalui pengerjaan proyek bisnis secara mandiri. Kegiatan tersebut diarahkan pada pencapaian target usaha, termasuk target omzet bulanan, sehingga santri tidak hanya memperoleh pengetahuan secara teoritis, tetapi juga mendapatkan pengalaman dalam menjalankan kegiatan usaha secara langsung.</p>
+      <div class="highlight">
+        <p>Melalui perpaduan metode pembelajaran tradisional dan praktik kewirausahaan, Pondok Pesantren Annashiiha berupaya membentuk santri yang memiliki pemahaman agama, akhlak, keterampilan, dan kemandirian.</p>
+      </div>
       <div class="photo" role="img" aria-label="Santri mengikuti pengajian bersama">
         <span>Santri mengikuti kegiatan belajar bersama</span>
       </div>
     </section>
+
   </div>
 </main>
 
@@ -184,7 +228,7 @@
       </div>
     </div>
     <address>
-      Kompleks Masjid Klenteng, Jl. Abiyoso No. 14, Kelurahan Dukuh, Kec. Sidomukti, Kota Salatiga, Jawa Tengah
+      Kompleks Masjid Klenteng, Jl. Abiyoso No. 14, Kelurahan Dukuh, Kecamatan Sidomukti, Kota Salatiga, Jawa Tengah
     </address>
     <div class="social">
       <a href="#" aria-label="Facebook">f</a>

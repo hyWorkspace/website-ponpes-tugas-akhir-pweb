@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pendidikan | Pondok Pesantren Annashiiha Salatiga</title>
+<meta name="description" content="Program pendidikan, kurikulum, dan metode pembelajaran di Pondok Pesantren Annashiiha Salatiga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#0b3d2e;
+    --green-800:#0f4d3a;
+    --green-600:#1b6b4f;
+    --green-100:#e4efe9;
+    --cream:#fbfaf5;
+    --ink:#1f2a25;
+    --muted:#5d6b64;
+    --line:#e3e6df;
+    --radius:10px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* ===== Header ===== */
+  .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand-logo{width:38px;height:38px;border-radius:50%;background:var(--green-800);display:grid;place-items:center;color:#fff;font-family:'Lora',serif;font-weight:700}
+  .brand-text{line-height:1.2}
+  .brand-text small{display:block;font-size:11px;color:var(--muted)}
+  .brand-text strong{font-family:'Lora',serif;font-size:15px;color:var(--green-900)}
+  .menu{display:flex;gap:22px;list-style:none;font-size:14px;font-weight:500}
+  .menu a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+  .menu a:hover{color:var(--green-600)}
+  .menu a.active{color:var(--green-800);border-color:var(--green-800)}
+  .burger{display:none;background:none;border:0;font-size:26px;cursor:pointer;color:var(--green-900)}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;color:#fff;padding:90px 0 70px;
+    background:
+      linear-gradient(90deg,rgba(11,61,46,.88),rgba(11,61,46,.45)),
+      /* Ganti dengan foto Anda: url('images/hero-pendidikan.jpg') */
+      linear-gradient(135deg,#7a1f1a 0%,#b3392b 45%,#3b5d3a 100%);
+    background-size:cover;background-position:center;
+  }
+  .hero h1{font-family:'Lora',serif;font-size:clamp(32px,5vw,48px);line-height:1.15;margin-bottom:10px}
+  .hero p{max-width:520px;font-size:16px;opacity:.95}
+
+  /* ===== Layout ===== */
+  .page{display:grid;grid-template-columns:230px 1fr;gap:48px;padding:48px 0 64px;align-items:start}
+  .side{position:sticky;top:90px;display:flex;flex-direction:column;gap:6px}
+  .side a{padding:10px 16px;border-radius:6px;font-size:14px;font-weight:500;color:var(--muted);transition:.2s}
+  .side a:hover{background:var(--green-100);color:var(--green-800)}
+  .side a.active{background:var(--green-800);color:#fff}
+
+  .content section{margin-bottom:40px;scroll-margin-top:90px}
+  .content h2{font-family:'Lora',serif;font-size:24px;color:var(--green-900);margin-bottom:14px}
+  .content p{color:var(--muted);margin-bottom:10px}
+  .content ul{list-style:none;display:grid;gap:12px}
+  .content li{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px 18px 14px 46px;position:relative;color:var(--ink);font-size:15px
+  }
+  .content li::before{
+    content:"✓";position:absolute;left:16px;top:14px;width:20px;height:20px;border-radius:50%;
+    background:var(--green-100);color:var(--green-800);font-size:12px;font-weight:700;display:grid;place-items:center
+  }
+
+  .photo{
+    margin-top:12px;height:300px;border-radius:var(--radius);overflow:hidden;position:relative;
+    /* Ganti dengan foto Anda: url('images/santri-belajar.jpg') */
+    background:linear-gradient(135deg,#d9d3c4,#8fa597);
+    background-size:cover;background-position:center;
+    display:flex;align-items:flex-end;
+  }
+  .photo span{width:100%;padding:12px 18px;color:#fff;font-size:13px;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+
+  /* ===== Footer ===== */
+  .site-footer{background:var(--green-900);color:#e8f1ed;padding:34px 0;font-size:13px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot .brand-text strong{color:#fff}
+  .foot .brand-text small{color:#b5cbc2}
+  .foot address{font-style:normal;max-width:360px;color:#c9dbd3}
+  .social{display:flex;gap:10px}
+  .social a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:12px;font-weight:600}
+  .social a:hover{background:rgba(255,255,255,.25)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:900px){
+    .page{grid-template-columns:1fr;gap:24px}
+    .side{position:static;flex-direction:row;overflow-x:auto;padding-bottom:6px}
+    .side a{white-space:nowrap}
+    .burger{display:block}
+    .menu{
+      position:absolute;left:0;right:0;top:68px;background:#fff;flex-direction:column;gap:0;
+      border-bottom:1px solid var(--line);display:none;padding:8px 20px 14px
+    }
+    .menu.open{display:flex}
+    .menu a{display:block;padding:10px 0}
+    .hero{padding:64px 0 48px}
+    .photo{height:220px}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div class="brand-text">
+        <small>Pondok Pesantren</small>
+        <strong>Annashiiha Salatiga</strong>
+      </div>
+    </a>
+    <button class="burger" id="burger" aria-label="Buka menu">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="pendidikan.html" class="active">Pendidikan</a></li>
+      <li><a href="kegiatan.html">Kegiatan</a></li>
+      <li><a href="informasi.html">Informasi</a></li>
+      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="pendaftaran.html">Pendaftaran</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Pendidikan</h1>
+    <p>Membentuk generasi berilmu, mandiri, dan berakhlak mulia</p>
+  </div>
+</section>
+
+<main class="container page">
+  <nav class="side" id="side" aria-label="Sub menu pendidikan">
+    <a href="#program" class="active">Program Pendidikan</a>
+    <a href="#kurikulum">Kurikulum</a>
+    <a href="#metode">Metode Pembelajaran</a>
+  </nav>
+
+  <div class="content">
+    <section id="program">
+      <h2>Program Pendidikan</h2>
+      <ul>
+        <li>Program Pembelajaran Agama (Ta'lim) &amp; Pengajian Kitab Kuning</li>
+        <li>Program Pesantren Entrepreneur / Kewirausahaan Berbasis Media Sosial</li>
+        <li>Program Pembinaan Santri Pelajar (SMP/SMA/SMK) dan Mahasiswa</li>
+      </ul>
+    </section>
+
+    <section id="kurikulum">
+      <h2>Kurikulum</h2>
+      <p>Integrasi kurikulum keagamaan tradisional pesantren (seperti kajian kitab Ta'limul Muta'allim) dengan pembelajaran ilmu kewirausahaan.</p>
+    </section>
+
+    <section id="metode">
+      <h2>Metode Pembelajaran</h2>
+      <p>Pengajian metode sorogan/bandongan untuk ilmu keagamaan, serta pelatihan dan pengajian proyek bisnis mandiri berbasis target omzet melalui praktik kewirausahaan.</p>
+      <div class="photo" role="img" aria-label="Santri mengikuti pengajian bersama">
+        <span>Santri mengikuti kegiatan belajar bersama</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container foot">
+    <div class="brand">
+      <div class="brand-logo" style="background:#fff;color:var(--green-900)">A</div>
+      <div class="brand-text">
+        <small>Pondok Pesantren</small>
+        <strong>Annashiiha Salatiga</strong>
+      </div>
+    </div>
+    <address>
+      Kompleks Masjid Klenteng, Jl. Abiyoso No. 14, Kelurahan Dukuh, Kec. Sidomukti, Kota Salatiga, Jawa Tengah
+    </address>
+    <div class="social">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="#" aria-label="YouTube">▶</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Menu mobile
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+
+  // Highlight sub-menu sesuai bagian yang sedang dilihat
+  const links = document.querySelectorAll('#side a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => s && observer.observe(s));
+</script>
+</body>
+</html>

@@ -16,29 +16,33 @@
     />
   </head>
   <body>
-    <!-- header -->
     <header class="site-header">
       <div class="container nav-wrap">
         <a class="brand" href="index.html">
-          <img src="assets/logo.png" alt="" />
-          <span
+          <img src="assets/logo.png" alt="logo" /><span
             ><strong>Pondok Pesantren</strong><b>Annashiiha Salatiga</b></span
           >
         </a>
-        <nav class="main-nav" aria-label="Navigasi utama">
+
+        <!-- Tombol Hamburder -->
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-controls="main-nav"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Menu Navigasi -->
+        <nav class="main-nav" id="main-nav">
           <a href="index.html">Beranda</a>
-          <div class="nav-item">
-            <a href="profil.html">Profil</a>
-          </div>
-          <div class="nav-item">
-            <a href="pendidikan.html">Pendidikan</a>
-          </div>
-          <div class="nav-item">
-            <a href="kegiatan.html">Kegiatan</a>
-          </div>
-          <div class="nav-item">
-            <a href="informasi.html">Informasi</a>
-          </div>
+          <a href="profil.html">Profil</a>
+          <a href="pendidikan.html">Pendidikan</a>
+          <a href="kegiatan.html">Kegiatan</a>
+          <a href="informasi.html">Informasi</a>
           <a href="galeri.html">Galeri</a>
           <a href="pendaftaran.html">Pendaftaran</a>
           <a class="active" href="kontak.html">Kontak</a>
@@ -64,6 +68,45 @@
             <h2>Mari terhubung dengan <em>Annashiiha.</em></h2>
             <div class="contact-layout">
               <div class="contact-details">
+                
+                <article class="contact-item">
+                  <span class="contact-icon"
+                    ><i class="fa-brands fa-whatsapp"></i
+                  ></span>
+                  <div>
+                    <h3>WhatsApp</h3>
+                    <p>0882-0082-35267</p>
+                  </div>
+                </article>
+                <article class="contact-item">
+                  <span class="contact-icon"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></span>
+                  <div>
+                    <h3>Instagram</h3>
+                    <p>@ponpes_annashiiha</p>
+                  </div>
+                </article>
+                <article class="contact-item">
+                  <span class="contact-icon"
+                    ><i class="fa-brands fa-tiktok"></i
+                  ></span>
+                  <div>
+                    <h3>TikTok</h3>
+                    <p>@ponpes_annashiiha</p>
+                  </div>
+                </article>
+                <article class="contact-item">
+                  <span class="contact-icon"
+                    ><i class="fa-regular fa-envelope"></i
+                  ></span>
+                  <div>
+                    <h3>Email</h3>
+                    <p>ponpesannashiiha@gmail.com</p>
+                  </div>
+                </article>
+              </div>
+              <div class="contact-location">
                 <article class="contact-item">
                   <span class="contact-icon"
                     ><i class="fa-solid fa-map-marker-alt"></i
@@ -71,39 +114,32 @@
                   <div>
                     <h3>Alamat</h3>
                     <p>
-                      Kompleks Masjid Klenteng,<br />Jl. Abiyoso No. 14,
-                      Kelurahan Dukuh,<br />Kecamatan Sidomukti, Kota
-                      Salatiga,<br />Jawa Tengah.
+                      Kompleks Masjid Klenteng, Jl. Abiyoso No. 14,
+                      Kelurahan Dukuh, Kecamatan Sidomukti, Kota
+                      Salatiga, Jawa Tengah.
                     </p>
                   </div>
                 </article>
                 <article class="contact-item">
-                  <span class="contact-icon"
-                    ><i class="fa-brands fa-whatsapp"></i
-                  ></span>
-                  <div>
-                    <h3>WhatsApp</h3>
-                    <p>
-                      [Nomor Whatsapp pondok]
-                    </p>
-                  </div>
-                </article>
-                <article class="contact-item">
-                  <span class="contact-icon"
-                    ><i class="fa-solid fa-map-location"></i
-                  ></span>
-                  <div>
-                    <h3>Maps</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.1779472336984!2d110.4868137!3d-7.333902800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a7900342034ed%3A0xcabcb76baeb5c210!2sPondok%20Pesantren%20Annashiiha!5e0!3m2!1sen!2sid!4v1791901482383!5m2!1sen!2sid" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                  </div>
-                </article>
+                <span class="contact-icon"
+                  ><i class="fa-solid fa-map-location"></i
+                ></span>
+                <div class="contact-map">
+                  <h3>Maps</h3>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.1779472336984!2d110.4868137!3d-7.333902800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a7900342034ed%3A0xcabcb76baeb5c210!2sPondok%20Pesantren%20Annashiiha!5e0!3m2!1sen!2sid!4v1791901482383!5m2!1sen!2sid"
+                    width="100%"
+                    height="250"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+              </article>
               </div>
               <form class="contact-form" id="contactForm">
-                <h3>Form kontak</h3>
-                <!-- <p class="small-note">
-                  Formulir ini merupakan demo front-end; pesan tidak terkirim ke
-                  pengurus pondok.
-                </p> -->
+                <h3>Kirim Pesan</h3>
                 <label for="name">Nama</label
                 ><input
                   id="name"
@@ -125,9 +161,7 @@
                   required
                   placeholder="Tulis pesan Anda di sini..."
                 ></textarea
-                ><button class="btn btn-primary" type="submit">
-                  Kirim
-                </button>
+                ><button class="btn btn-primary" type="submit">Kirim</button>
                 <p class="form-message" id="formMessage" role="status"></p>
               </form>
             </div>
@@ -135,14 +169,39 @@
         </div>
       </section>
     </main>
-    
+
+    <!-- footer -->
     <footer class="site-footer">
       <div class="container footer-main">
         <a class="brand brand-footer" href="index.html"
-          ><img src="assets/logo.png" alt="" /><span
+          ><img src="assets/logo.png" alt="" />
+          <span
             ><strong>Pondok Pesantren</strong><b>Annashiiha Salatiga</b></span
           ></a
         >
+        <div class="social">
+          <a
+            href="https://www.youtube.com/@ponpes_annashiiha"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/ponpes_annashiiha/"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@ponpes_annashiiha"
+            aria-label="Tiktok"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+        </div>
         <p>Berilmu, mandiri, toleran.</p>
         <div class="footer-address">
           Kompleks Masjid Klenteng, Jl. Abiyoso No. 14<br />Kelurahan Dukuh,

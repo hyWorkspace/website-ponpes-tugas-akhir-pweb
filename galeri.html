@@ -1,288 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Galeri | Pondok Pesantren Annashiiha Salatiga</title>
-<meta name="description" content="Dokumentasi kegiatan dan suasana Pondok Pesantren Annashiiha Salatiga.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --green-900:#0b3d2e;
-    --green-800:#0f4d3a;
-    --green-600:#1b6b4f;
-    --green-100:#e4efe9;
-    --gold:#c9a24b;
-    --cream:#fbfaf5;
-    --ink:#1f2a25;
-    --muted:#5d6b64;
-    --line:#e3e6df;
-    --radius:10px;
-    --maxw:1120px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.75}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galeri | Pondok Pesantren Annashiiha Salatiga</title>
+    <meta
+      name="description"
+      content="Dokumentasi kegiatan dan suasana Pondok Pesantren Annashiiha Salatiga."
+    />
 
-  /* ===== Header ===== */
-  .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
-  .brand{display:flex;align-items:center;gap:10px}
-  .brand-logo{width:38px;height:38px;border-radius:50%;background:var(--green-800);display:grid;place-items:center;color:#fff;font-family:'Lora',serif;font-weight:700}
-  .brand-text{line-height:1.2}
-  .brand-text small{display:block;font-size:11px;color:var(--muted)}
-  .brand-text strong{font-family:'Lora',serif;font-size:15px;color:var(--green-900)}
-  .menu{display:flex;gap:22px;list-style:none;font-size:14px;font-weight:500}
-  .menu a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
-  .menu a:hover{color:var(--green-600)}
-  .menu a.active{color:var(--green-800);border-color:var(--green-800)}
-  .burger{display:none;background:none;border:0;font-size:26px;cursor:pointer;color:var(--green-900)}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-galeri">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png" alt="" />
+          <span>
+            <strong>Pondok Pesantren</strong>
+            <b>Annashiiha Salatiga</b>
+          </span>
+        </a>
 
-  /* ===== Hero ===== */
-  .hero{
-    position:relative;color:#fff;padding:90px 0 70px;
-    background:
-      linear-gradient(90deg,rgba(11,61,46,.88),rgba(11,61,46,.45)),
-      /* Ganti dengan foto Anda: url('images/hero-galeri.jpg') */
-      linear-gradient(135deg,#7a1f1a 0%,#b3392b 45%,#3b5d3a 100%);
-    background-size:cover;background-position:center;
-  }
-  .hero h1{font-family:'Lora',serif;font-size:clamp(32px,5vw,48px);line-height:1.15;margin-bottom:10px}
-  .hero p{max-width:520px;font-size:16px;opacity:.95}
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-controls="main-nav"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
 
-  /* ===== Layout ===== */
-  .page{padding:48px 0 64px}
-        
-  .content section{margin-bottom:48px;scroll-margin-top:90px}
-  .content h2{font-family:'Lora',serif;font-size:26px;color:var(--green-900);margin-bottom:14px}
-  .content p{color:var(--muted);margin-bottom:12px}
-  .content .lead{color:var(--ink)}
-
-  /* Filter */
-  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
-  .filters button{font:inherit;font-size:14px;font-weight:500;padding:8px 18px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.2s}
-  .filters button:hover{border-color:var(--green-600);color:var(--green-800)}
-  .filters button.active{background:var(--green-800);border-color:var(--green-800);color:#fff}
-
-  /* Grid foto */
-  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .item{margin:0;position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;background:#fff;border:1px solid var(--line);
-    transition:box-shadow .2s,transform .2s,opacity .25s}
-  .item:hover{box-shadow:0 8px 20px rgba(11,61,46,.12);transform:translateY(-2px)}
-  .item.hide{display:none}
-  .thumb{aspect-ratio:4/3;background-size:cover;background-position:center;background-color:#8fa597}
-  .item figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;color:#fff;font-size:13px;
-    background:linear-gradient(transparent,rgba(0,0,0,.65));opacity:0;transition:.2s}
-  .item:hover figcaption,.item:focus-visible figcaption{opacity:1}
-  .item:focus-visible{outline:3px solid var(--green-600);outline-offset:2px}
-  .empty{display:none;color:var(--muted);text-align:center;padding:30px 0}
-
-  /* Lightbox */
-  .lightbox{position:fixed;inset:0;z-index:100;background:rgba(8,28,21,.92);display:none;align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
-  .lightbox.open{display:flex}
-  .lightbox .big{width:min(900px,100%);aspect-ratio:4/3;max-height:75vh;background-size:contain;background-repeat:no-repeat;background-position:center;border-radius:var(--radius)}
-  .lightbox p{color:#e8f1ed;font-size:14px;text-align:center}
-  .lb-btn{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer}
-  .lb-btn:hover{background:rgba(255,255,255,.28)}
-  .lb-close{top:18px;right:18px}
-  .lb-prev{left:18px;top:50%;transform:translateY(-50%)}
-  .lb-next{right:18px;top:50%;transform:translateY(-50%)}
-
-  /* ===== Footer ===== */
-  .site-footer{background:var(--green-900);color:#e8f1ed;padding:34px 0;font-size:13px}
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .foot .brand-text strong{color:#fff}
-  .foot .brand-text small{color:#b5cbc2}
-  .foot address{font-style:normal;max-width:360px;color:#c9dbd3}
-  .social{display:flex;gap:10px}
-  .social a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:12px;font-weight:600}
-  .social a:hover{background:rgba(255,255,255,.25)}
-
-  /* ===== Responsive ===== */
-  @media (max-width:900px){
-                .burger{display:block}
-    .menu{
-      position:absolute;left:0;right:0;top:68px;background:#fff;flex-direction:column;gap:0;
-      border-bottom:1px solid var(--line);display:none;padding:8px 20px 14px
-    }
-    .menu.open{display:flex}
-    .menu a{display:block;padding:10px 0}
-    .hero{padding:64px 0 48px}
-    .gallery{grid-template-columns:repeat(2,1fr)}
-  }
-  @media (max-width:520px){ .gallery{grid-template-columns:1fr} }
-</style>
-</head>
-<body>
-
-<header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="brand">
-      <div class="brand-logo">A</div>
-      <div class="brand-text">
-        <small>Pondok Pesantren</small>
-        <strong>Annashiiha Salatiga</strong>
+        <nav class="main-nav" id="main-nav">
+          <a href="index.html">Beranda</a>
+          <a href="profil.html">Profil</a>
+          <a href="pendidikan.html">Pendidikan</a>
+          <a href="kegiatan.html">Kegiatan</a>
+          <a href="informasi.html">Informasi</a>
+          <a href="galeri.html" class="active">Galeri</a>
+          <a href="pendaftaran.html">Pendaftaran</a>
+          <a href="kontak.html">Kontak</a>
+        </nav>
       </div>
-    </a>
-    <button class="burger" id="burger" aria-label="Buka menu">☰</button>
-    <ul class="menu" id="menu">
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html">Profil</a></li>
-      <li><a href="pendidikan.html">Pendidikan</a></li>
-      <li><a href="kegiatan.html">Kegiatan</a></li>
-      <li><a href="informasi.html">Informasi</a></li>
-      <li><a href="galeri.html" class="active">Galeri</a></li>
-      <li><a href="pendaftaran.html">Pendaftaran</a></li>
-      <li><a href="kontak.html">Kontak</a></li>
-    </ul>
-  </div>
-</header>
+    </header>
 
-<section class="hero">
-  <div class="container">
-    <h1>Galeri</h1>
-    <p>Dokumentasi kegiatan dan suasana Pondok Pesantren Annashiiha Salatiga</p>
-  </div>
-</section>
-
-<main class="container page">
-  
-
-  <div class="content">
-    <section id="galeri">
-      <h2>Galeri</h2>
-      <p class="lead">Dokumentasi foto dan video arsitektur khas Masjid Klenteng (akulturasi ornamen merah/lampion dengan tulisan kaligrafi), suasana kajian santri, serta kegiatan majelis keagamaan.</p>
-
-      <div class="filters" id="filters" role="group" aria-label="Filter kategori foto">
-        <button class="active" data-filter="all">Semua</button>
-        <button data-filter="arsitektur">Arsitektur</button>
-        <button data-filter="kegiatan">Kegiatan Santri</button>
-        <button data-filter="majelis">Majelis Keagamaan</button>
+    <section class="hero">
+      <div class="container">
+        <h1>Galeri</h1>
+        <p>
+          Dokumentasi kegiatan dan suasana Pondok Pesantren Annashiiha Salatiga
+        </p>
       </div>
-
-      <div class="gallery" id="gallery">
-      <figure class="item" data-cat="arsitektur" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/arsitektur-1.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Gerbang dan atap khas Tionghoa Masjid Klenteng</figcaption>
-      </figure>
-      <figure class="item" data-cat="arsitektur" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/arsitektur-2.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Lampion merah di dalam masjid</figcaption>
-      </figure>
-      <figure class="item" data-cat="arsitektur" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/arsitektur-3.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Ornamen dan kaligrafi</figcaption>
-      </figure>
-      <figure class="item" data-cat="kegiatan" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/kegiatan-1.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Kajian kitab bersama santri</figcaption>
-      </figure>
-      <figure class="item" data-cat="kegiatan" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/kegiatan-2.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Santri belajar kewirausahaan</figcaption>
-      </figure>
-      <figure class="item" data-cat="kegiatan" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/kegiatan-3.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Tadarus dan pengajian malam</figcaption>
-      </figure>
-      <figure class="item" data-cat="majelis" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/majelis-1.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Pengajian Akbar Iftitah Addirosah</figcaption>
-      </figure>
-      <figure class="item" data-cat="majelis" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/majelis-2.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Majelis keagamaan bersama masyarakat</figcaption>
-      </figure>
-      <figure class="item" data-cat="majelis" tabindex="0">
-        <div class="thumb" style="background-image:url('images/galeri/majelis-3.jpg'),linear-gradient(135deg,#d9d3c4,#8fa597)"></div>
-        <figcaption>Kajian Tafsir Al-Ibriz</figcaption>
-      </figure>
-      </div>
-      <p class="empty" id="empty">Belum ada foto di kategori ini.</p>
     </section>
 
-  </div>
-</main>
+    <main class="container page">
+      <div class="content">
+        <section id="galeri">
+          <h2>Galeri</h2>
+          <p class="lead">
+            Dokumentasi foto dan video arsitektur khas Masjid Klenteng
+            (akulturasi ornamen merah/lampion dengan tulisan kaligrafi), suasana
+            kajian santri, serta kegiatan majelis keagamaan.
+          </p>
 
+          <div
+            class="filters"
+            id="filters"
+            role="group"
+            aria-label="Filter kategori foto"
+          >
+            <button class="active" data-filter="all">Semua</button>
+            <button data-filter="arsitektur">Arsitektur</button>
+            <button data-filter="kegiatan">Kegiatan Santri</button>
+            <button data-filter="majelis">Majelis Keagamaan</button>
+          </div>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto">
-  <button class="lb-btn lb-close" id="lbClose" aria-label="Tutup">&times;</button>
-  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Foto sebelumnya">&#8249;</button>
-  <div class="big" id="lbImg"></div>
-  <p id="lbCap"></p>
-  <button class="lb-btn lb-next" id="lbNext" aria-label="Foto berikutnya">&#8250;</button>
-</div>
-
-<footer class="site-footer">
-  <div class="container foot">
-    <div class="brand">
-      <div class="brand-logo" style="background:#fff;color:var(--green-900)">A</div>
-      <div class="brand-text">
-        <small>Pondok Pesantren</small>
-        <strong>Annashiiha Salatiga</strong>
+          <div class="gallery" id="gallery">
+            <figure class="item" data-cat="arsitektur" tabindex="0">
+              <div class="thumb" data-bg="assets/arsitektur.JPG"></div>
+              <figcaption>Arsitektur khas Tionghoa Masjid Klenteng</figcaption>
+            </figure>
+            <figure class="item" data-cat="arsitektur" tabindex="0">
+              <div class="thumb" data-bg="assets/masjid-klenteng.webp"></div>
+              <figcaption>Arsitektur Masjid Klenteng</figcaption>
+            </figure>
+            <figure class="item" data-cat="arsitektur" tabindex="0">
+              <div class="thumb" data-bg="assets/masjid2.webp"></div>
+              <figcaption>Arsitektur Masjid Klenteng</figcaption>
+            </figure>
+            <figure class="item" data-cat="kegiatan" tabindex="0">
+              <div class="thumb" data-bg="assets/hsn2026.JPG"></div>
+              <figcaption>Semarak Hari Santri Nasional 2026</figcaption>
+            </figure>
+            <figure class="item" data-cat="kegiatan" tabindex="0">
+              <div class="thumb" data-bg="assets/nuzulul quran.jpg"></div>
+              <figcaption>Peringatan Nuzulul Quran</figcaption>
+            </figure>
+            <figure class="item" data-cat="kegiatan" tabindex="0">
+              <div
+                class="thumb"
+                data-bg="assets/penerimaan santri baru.jpg"
+              ></div>
+              <figcaption>Penerimaan Santri Baru 2025</figcaption>
+            </figure>
+            <figure class="item" data-cat="majelis" tabindex="0">
+              <div class="thumb" data-bg="assets/iftitah dirosah.jpg"></div>
+              <figcaption>Pengajian Akbar Iftitah Addirosah</figcaption>
+            </figure>
+            <figure class="item" data-cat="majelis" tabindex="0">
+              <div class="thumb" data-bg="assets/pengajian ahad pon.jpg"></div>
+              <figcaption>Pengajian Ahad Pon</figcaption>
+            </figure>
+            <figure class="item" data-cat="majelis" tabindex="0">
+              <div class="thumb" data-bg="assets/Muqoddaman.jpg"></div>
+              <figcaption>Rutinan Muqoddaman Sabtu Pahing</figcaption>
+            </figure>
+          </div>
+          <p class="empty" id="empty">Belum ada foto di kategori ini.</p>
+        </section>
       </div>
+    </main>
+
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Pratinjau foto"
+    >
+      <button class="lb-btn lb-close" id="lbClose" aria-label="Tutup">
+        &times;
+      </button>
+      <button class="lb-btn lb-prev" id="lbPrev" aria-label="Foto sebelumnya">
+        &#8249;
+      </button>
+      <div class="big" id="lbImg"></div>
+      <p id="lbCap"></p>
+      <button class="lb-btn lb-next" id="lbNext" aria-label="Foto berikutnya">
+        &#8250;
+      </button>
     </div>
-    <address>
-      Kompleks Masjid Klenteng, Jl. Abiyoso No. 14, Kelurahan Dukuh, Kecamatan Sidomukti, Kota Salatiga, Jawa Tengah
-    </address>
-    <div class="social">
-      <a href="#" aria-label="Facebook">f</a>
-      <a href="#" aria-label="Instagram">ig</a>
-      <a href="#" aria-label="YouTube">▶</a>
-    </div>
-  </div>
-</footer>
 
-<script>
-  // Menu mobile
-  const burger = document.getElementById('burger');
-  const menu = document.getElementById('menu');
-  burger.addEventListener('click', () => menu.classList.toggle('open'));
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <a class="brand brand-footer" href="index.html">
+          <img src="assets/logo.png" alt="" />
+          <span>
+            <strong>Pondok Pesantren</strong>
+            <b>Annashiiha Salatiga</b>
+          </span>
+        </a>
 
-  // Filter kategori
-  const filterBtns = document.querySelectorAll('#filters button');
-  const items = [...document.querySelectorAll('.item')];
-  const empty = document.getElementById('empty');
-  filterBtns.forEach(btn => btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.toggle('active', b === btn));
-    const f = btn.dataset.filter;
-    items.forEach(it => it.classList.toggle('hide', f !== 'all' && it.dataset.cat !== f));
-    empty.style.display = items.some(it => !it.classList.contains('hide')) ? 'none' : 'block';
-  }));
+        <div class="social">
+          <a
+            href="https://www.youtube.com/@ponpes_annashiiha"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/ponpes_annashiiha/"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@ponpes_annashiiha"
+            aria-label="Tiktok"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+        </div>
 
-  // Lightbox
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const lbCap = document.getElementById('lbCap');
-  let current = 0;
-  const visible = () => items.filter(it => !it.classList.contains('hide'));
-  function show(list, i){
-    current = (i + list.length) % list.length;
-    const it = list[current];
-    lbImg.style.backgroundImage = it.querySelector('.thumb').style.backgroundImage;
-    lbCap.textContent = it.querySelector('figcaption').textContent;
-  }
-  function open(it){ const l = visible(); show(l, l.indexOf(it)); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function close(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
-  items.forEach(it => {
-    it.addEventListener('click', () => open(it));
-    it.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(it); } });
-  });
-  document.getElementById('lbClose').addEventListener('click', close);
-  document.getElementById('lbPrev').addEventListener('click', () => show(visible(), current - 1));
-  document.getElementById('lbNext').addEventListener('click', () => show(visible(), current + 1));
-  lb.addEventListener('click', e => { if (e.target === lb) close(); });
-  document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft') show(visible(), current - 1);
-    if (e.key === 'ArrowRight') show(visible(), current + 1);
-  });
-</script>
-</body>
+        <p>Berilmu, mandiri, toleran.</p>
+
+        <div class="footer-address">
+          Kompleks Masjid Klenteng, Jl. Abiyoso No. 14<br />
+          Kelurahan Dukuh, Kecamatan Sidomukti<br />
+          Kota Salatiga, Jawa Tengah
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span
+          >© <span id="year"></span> Pondok Pesantren Annashiiha Salatiga</span
+        >
+        <span>Website informasi pondok pesantren</span>
+      </div>
+    </footer>
+
+    <script defer src="js/main.js"></script>
+  </body>
 </html>

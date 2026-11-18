@@ -10,7 +10,10 @@
     <title>Beranda | Pondok Pesantren Annashiiha Salatiga</title>
     <link rel="icon" href="assets/logo.png" type="image/svg+xml" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- header  -->
@@ -21,20 +24,26 @@
             ><strong>Pondok Pesantren</strong><b>Annashiiha Salatiga</b></span
           >
         </a>
-        <nav class="main-nav">
+
+        <!-- Tombol Hamburder -->
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-controls="main-nav"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Menu Navigasi -->
+        <nav class="main-nav" id="main-nav">
           <a class="active" href="index.html">Beranda</a>
-          <div class="nav-item">
-            <a href="profil.html">Profil</a>
-          </div>
-          <div class="nav-item">
-            <a href="pendidikan.html">Pendidikan</a>
-          </div>
-          <div class="nav-item">
-            <a href="kegiatan.html">Kegiatan</a>
-          </div>
-          <div class="nav-item">
-            <a href="informasi.html">Informasi</a>
-          </div>
+          <a href="profil.html">Profil</a>
+          <a href="pendidikan.html">Pendidikan</a>
+          <a href="kegiatan.html">Kegiatan</a>
+          <a href="informasi.html">Informasi</a>
           <a href="galeri.html">Galeri</a>
           <a href="pendaftaran.html">Pendaftaran</a>
           <a href="kontak.html">Kontak</a>
@@ -58,9 +67,7 @@
             kewirausahaan, dan semangat toleransi dalam lingkungan yang khas.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="profil.html"
-              >Kenali Pondok</a
-            >
+            <a class="btn btn-gold" href="profil.html">Kenali Pondok</a>
             <a class="btn btn-glass" href="pendidikan.html"
               >Jelajahi Pendidikan</a
             >
@@ -75,26 +82,32 @@
           <div class="stat">
             <span class="stat-icon"><i class="fa-solid fa-mosque"></i></span>
             <div>
-              <strong class="counter" data-target="2010">0</strong>
+              <strong class="counter" data-target="2020">0</strong>
               <small>Tahun Berdiri</small>
             </div>
           </div>
           <div class="stat">
-            <span class="stat-icon"><i class="fa-solid fa-user-graduate"></i></span>
+            <span class="stat-icon"
+              ><i class="fa-solid fa-user-graduate"></i
+            ></span>
             <div>
               <strong class="counter" data-target="250">0</strong>
               <small>Jumlah santri</small>
             </div>
           </div>
           <div class="stat">
-            <span class="stat-icon"><i class="fa-solid fa-chalkboard-teacher"></i></span>
+            <span class="stat-icon"
+              ><i class="fa-solid fa-chalkboard-teacher"></i
+            ></span>
             <div>
               <strong class="counter" data-target="20">0</strong>
               <small>Jumlah pengajar</small>
             </div>
           </div>
           <div class="stat">
-            <span class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span class="stat-icon"
+              ><i class="fa-solid fa-graduation-cap"></i
+            ></span>
             <div>
               <strong class="counter" data-target="500">0</strong>
               <small>Total alumni</small>
@@ -123,11 +136,13 @@
               Keunikan ini menjadi bagian dari wajah toleransi budaya dan
               keagamaan di Kota Salatiga.
             </p>
-            <a class="text-link" href="profil.html">Selengkapnya tentang pondok <span>→</span></a>
+            <a class="text-link" href="profil.html"
+              >Selengkapnya tentang pondok <span>→</span></a
+            >
           </div>
         </div>
       </section>
-      
+
       <section class="section section-soft">
         <div class="container">
           <div class="section-heading">
@@ -151,7 +166,9 @@
               </p>
             </article>
             <article class="info-card">
-              <div class="card-symbol"><i class="fa-solid fa-hand-holding-usd"></i></div>
+              <div class="card-symbol">
+                <i class="fa-solid fa-hand-holding-usd"></i>
+              </div>
               <span class="card-kicker">02 / Kemandirian</span>
               <h3>Pesantren Entrepreneur</h3>
               <p>
@@ -160,7 +177,9 @@
               </p>
             </article>
             <article class="info-card">
-              <div class="card-symbol"><i class="fa-solid fa-user-friends"></i></div>
+              <div class="card-symbol">
+                <i class="fa-solid fa-user-friends"></i>
+              </div>
               <span class="card-kicker">03 / Pendampingan</span>
               <h3>Santri Pelajar &amp; Mahasiswa</h3>
               <p>
@@ -168,7 +187,9 @@
                 hingga perguruan tinggi.
               </p>
             </article>
-            <a class="text-link" href="pendidikan.html">Lihat Program <span>→</span></a>
+            <a class="text-link" href="pendidikan.html"
+              >Lihat Program <span>→</span></a
+            >
           </div>
         </div>
       </section>
@@ -243,13 +264,8 @@
           <div>
             <span class="eyebrow light">Ingin mengenal lebih dekat?</span>
             <h2>Mulai langkah bersama <em>Annashiiha.</em></h2>
-            <!-- <p>
-              Informasi jadwal dan biaya pendaftaran resmi belum tersedia pada
-              dokumen profil. Silakan hubungi pondok untuk konfirmasi.
-            </p> -->
           </div>
-          <a class="btn btn-gold" href="pendaftaran.html"
-            >Info Pendaftaran</a>
+          <a class="btn btn-gold" href="pendaftaran.html">Info Pendaftaran</a>
         </div>
       </section>
     </main>
@@ -258,10 +274,34 @@
     <footer class="site-footer">
       <div class="container footer-main">
         <a class="brand brand-footer" href="index.html"
-          ><img src="assets/logo.png" alt="" /><span
+          ><img src="assets/logo.png" alt="" />
+          <span
             ><strong>Pondok Pesantren</strong><b>Annashiiha Salatiga</b></span
           ></a
         >
+        <div class="social">
+          <a
+            href="https://www.youtube.com/@ponpes_annashiiha"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/ponpes_annashiiha/"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@ponpes_annashiiha"
+            aria-label="Tiktok"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+        </div>
         <p>Berilmu, mandiri, toleran.</p>
         <div class="footer-address">
           Kompleks Masjid Klenteng, Jl. Abiyoso No. 14<br />Kelurahan Dukuh,

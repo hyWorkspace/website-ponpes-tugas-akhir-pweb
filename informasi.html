@@ -1,281 +1,263 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Informasi | Pondok Pesantren Annashiiha Salatiga</title>
-<meta name="description" content="Berita, pengumuman, agenda, dan artikel Pondok Pesantren Annashiiha Salatiga.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --green-900:#0b3d2e;
-    --green-800:#0f4d3a;
-    --green-600:#1b6b4f;
-    --green-100:#e4efe9;
-    --gold:#c9a24b;
-    --cream:#fbfaf5;
-    --ink:#1f2a25;
-    --muted:#5d6b64;
-    --line:#e3e6df;
-    --radius:10px;
-    --maxw:1120px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.75}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Informasi | Pondok Pesantren Annashiiha Salatiga</title>
+    <meta
+      name="description"
+      content="Berita, pengumuman, agenda, dan artikel Pondok Pesantren Annashiiha Salatiga."
+    />
 
-  /* ===== Header ===== */
-  .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
-  .brand{display:flex;align-items:center;gap:10px}
-  .brand-logo{width:38px;height:38px;border-radius:50%;background:var(--green-800);display:grid;place-items:center;color:#fff;font-family:'Lora',serif;font-weight:700}
-  .brand-text{line-height:1.2}
-  .brand-text small{display:block;font-size:11px;color:var(--muted)}
-  .brand-text strong{font-family:'Lora',serif;font-size:15px;color:var(--green-900)}
-  .menu{display:flex;gap:22px;list-style:none;font-size:14px;font-weight:500}
-  .menu a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
-  .menu a:hover{color:var(--green-600)}
-  .menu a.active{color:var(--green-800);border-color:var(--green-800)}
-  .burger{display:none;background:none;border:0;font-size:26px;cursor:pointer;color:var(--green-900)}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-informasi">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png" alt="" />
+          <span>
+            <strong>Pondok Pesantren</strong>
+            <b>Annashiiha Salatiga</b>
+          </span>
+        </a>
 
-  /* ===== Hero ===== */
-  .hero{
-    position:relative;color:#fff;padding:90px 0 70px;
-    background:
-      linear-gradient(90deg,rgba(11,61,46,.88),rgba(11,61,46,.45)),
-      /* Ganti dengan foto Anda: url('images/hero-informasi.jpg') */
-      linear-gradient(135deg,#7a1f1a 0%,#b3392b 45%,#3b5d3a 100%);
-    background-size:cover;background-position:center;
-  }
-  .hero h1{font-family:'Lora',serif;font-size:clamp(32px,5vw,48px);line-height:1.15;margin-bottom:10px}
-  .hero p{max-width:520px;font-size:16px;opacity:.95}
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-controls="main-nav"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
 
-  /* ===== Layout ===== */
-  .page{display:grid;grid-template-columns:230px 1fr;gap:48px;padding:48px 0 64px;align-items:start}
-  .side{position:sticky;top:90px;display:flex;flex-direction:column;gap:6px}
-  .side a{padding:10px 16px;border-radius:6px;font-size:14px;font-weight:500;color:var(--muted);transition:.2s}
-  .side a:hover{background:var(--green-100);color:var(--green-800)}
-  .side a.active{background:var(--green-800);color:#fff}
-
-  .content section{margin-bottom:48px;scroll-margin-top:90px}
-  .content h2{font-family:'Lora',serif;font-size:26px;color:var(--green-900);margin-bottom:14px}
-  .content p{color:var(--muted);margin-bottom:12px}
-  .content .lead{color:var(--ink)}
-
-  /* Berita */
-  .news{display:grid;grid-template-columns:1fr 1.1fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:18px}
-  .news-img{min-height:260px;background:linear-gradient(135deg,#d9d3c4,#8fa597);background-size:cover;background-position:center}
-  .news-body{padding:24px}
-  .news-body h3{font-family:'Lora',serif;font-size:20px;line-height:1.35;color:var(--green-900);margin-bottom:10px}
-  .news-body p{font-size:14.5px}
-  .tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--green-600);background:var(--green-100);padding:3px 10px;border-radius:99px;margin-bottom:10px}
-
-  /* Pengumuman */
-  .notice{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:var(--radius);padding:20px 22px;margin-top:18px}
-  .notice h3{font-size:17px;color:var(--green-900);margin-bottom:8px}
-  .notice p{font-size:14.5px}
-  .notice p:last-child{margin-bottom:0}
-
-  /* Agenda */
-  .agenda{list-style:none;display:grid;gap:12px;margin-top:18px;counter-reset:ag}
-  .agenda li{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px 14px 62px;position:relative;counter-increment:ag;font-size:15px}
-  .agenda li::before{content:counter(ag);position:absolute;left:16px;top:12px;width:32px;height:32px;border-radius:50%;background:var(--green-800);color:#fff;font-family:'Lora',serif;font-weight:700;display:grid;place-items:center}
-
-  /* Artikel */
-  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
-  .article{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .2s}
-  .article:hover{box-shadow:0 6px 18px rgba(11,61,46,.08);transform:translateY(-2px)}
-  .article .thumb{height:150px;background:linear-gradient(135deg,#d9d3c4,#8fa597);background-size:cover;background-position:center}
-  .article .body{padding:18px}
-  .article h3{font-family:'Lora',serif;font-size:16.5px;line-height:1.4;color:var(--green-900);margin-bottom:8px}
-  .article p{font-size:14px;margin:0}
-
-  .highlight{
-    margin-top:16px;padding:16px 20px;border-left:4px solid var(--green-600);
-    background:var(--green-100);border-radius:0 var(--radius) var(--radius) 0;color:var(--green-900);font-size:15px
-  }
-  .highlight p{color:var(--green-900);margin:0}
-
-  /* ===== Footer ===== */
-  .site-footer{background:var(--green-900);color:#e8f1ed;padding:34px 0;font-size:13px}
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .foot .brand-text strong{color:#fff}
-  .foot .brand-text small{color:#b5cbc2}
-  .foot address{font-style:normal;max-width:360px;color:#c9dbd3}
-  .social{display:flex;gap:10px}
-  .social a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:12px;font-weight:600}
-  .social a:hover{background:rgba(255,255,255,.25)}
-
-  /* ===== Responsive ===== */
-  @media (max-width:900px){
-    .page{grid-template-columns:1fr;gap:24px}
-    .side{position:static;flex-direction:row;overflow-x:auto;padding-bottom:6px}
-    .side a{white-space:nowrap}
-    .burger{display:block}
-    .menu{
-      position:absolute;left:0;right:0;top:68px;background:#fff;flex-direction:column;gap:0;
-      border-bottom:1px solid var(--line);display:none;padding:8px 20px 14px
-    }
-    .menu.open{display:flex}
-    .menu a{display:block;padding:10px 0}
-    .hero{padding:64px 0 48px}
-    .grid-2{grid-template-columns:1fr}
-    .news{grid-template-columns:1fr}
-    .news-img{min-height:200px}
-  }
-</style>
-</head>
-<body>
-
-<header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="brand">
-      <div class="brand-logo">A</div>
-      <div class="brand-text">
-        <small>Pondok Pesantren</small>
-        <strong>Annashiiha Salatiga</strong>
+        <nav class="main-nav" id="main-nav">
+          <a href="index.html">Beranda</a>
+          <a href="profil.html">Profil</a>
+          <a href="pendidikan.html">Pendidikan</a>
+          <a href="kegiatan.html">Kegiatan</a>
+          <a href="informasi.html" class="active">Informasi</a>
+          <a href="galeri.html">Galeri</a>
+          <a href="pendaftaran.html">Pendaftaran</a>
+          <a href="kontak.html">Kontak</a>
+        </nav>
       </div>
-    </a>
-    <button class="burger" id="burger" aria-label="Buka menu">☰</button>
-    <ul class="menu" id="menu">
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html">Profil</a></li>
-      <li><a href="pendidikan.html">Pendidikan</a></li>
-      <li><a href="kegiatan.html">Kegiatan</a></li>
-      <li><a href="informasi.html" class="active">Informasi</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
-      <li><a href="pendaftaran.html">Pendaftaran</a></li>
-      <li><a href="kontak.html">Kontak</a></li>
-    </ul>
-  </div>
-</header>
+    </header>
 
-<section class="hero">
-  <div class="container">
-    <h1>Informasi</h1>
-    <p>Berita, pengumuman, agenda, dan artikel terbaru</p>
-  </div>
-</section>
+    <section class="hero">
+      <div class="container">
+        <h1>Informasi</h1>
+        <p>Berita, pengumuman, agenda, dan artikel terbaru</p>
+      </div>
+    </section>
 
-<main class="container page">
-  <nav class="side" id="side" aria-label="Sub menu informasi">
-    <a href="#berita" class="active">Berita</a>
-    <a href="#pengumuman">Pengumuman</a>
-    <a href="#agenda">Agenda</a>
-    <a href="#artikel">Artikel</a>
-  </nav>
+    <main class="container page">
+      <nav class="side" id="side" aria-label="Sub menu informasi">
+        <a href="#berita" class="active">Berita</a>
+        <a href="#pengumuman">Pengumuman</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#artikel">Artikel</a>
+      </nav>
 
-  <div class="content">
+      <div class="content">
+        <!-- ===== BERITA ===== -->
+        <section id="berita">
+          <h2>Berita</h2>
+          <article class="news">
+            <div
+              class="news-img"
+              role="img"
+              aria-label="Pengajian Akbar Iftitah Addirosah"
+            >
+              <img src="assets/iftitah dirosah.jpg" alt="" />
+            </div>
+            <div class="news-body">
+              <span class="tag">Berita</span>
+              <h3>
+                Pelaksanaan Pengajian Akbar dalam rangka Iftitah Addirosah
+                Ponpes Annashiiha Masjid Klenteng
+              </h3>
+              <p>
+                Pondok Pesantren Annashiiha Masjid Klenteng Salatiga
+                menyelenggarakan Pengajian Akbar dalam rangka Iftitah Addirosah
+                sebagai bagian dari kegiatan pembukaan tahun ajaran dan awal
+                kegiatan pembelajaran pesantren.
+              </p>
+            </div>
+          </article>
+          <p>
+            Kegiatan tersebut dihadiri oleh berbagai ulama, tokoh agama, dan
+            tokoh masyarakat, serta menjadi momentum untuk mempererat
+            silaturahmi antara pengasuh, pengajar, santri, alumni, dan
+            masyarakat. Salah satu tokoh agama yang turut hadir dalam kegiatan
+            pengajian adalah Habib Umar Muthohar.
+          </p>
+          <div class="highlight">
+            <p>
+              Kegiatan Iftitah Addirosah menjadi bagian dari tradisi pembukaan
+              kegiatan pendidikan pesantren sekaligus sarana untuk memberikan
+              motivasi dan penguatan nilai-nilai keagamaan kepada para santri.
+            </p>
+          </div>
+        </section>
 
-    <!-- ===== BERITA ===== -->
-    <section id="berita">
-      <h2>Berita</h2>
-      <article class="news">
-        <div class="news-img" role="img" aria-label="Pengajian Akbar Iftitah Addirosah"></div>
-        <div class="news-body">
-          <span class="tag">Berita</span>
-          <h3>Pelaksanaan Pengajian Akbar dalam rangka Iftitah Addirosah Ponpes Annashiiha Masjid Klenteng</h3>
-          <p>Pondok Pesantren Annashiiha Masjid Klenteng Salatiga menyelenggarakan Pengajian Akbar dalam rangka Iftitah Addirosah sebagai bagian dari kegiatan pembukaan tahun ajaran dan awal kegiatan pembelajaran pesantren.</p>
+        <!-- ===== PENGUMUMAN ===== -->
+        <section id="pengumuman">
+          <h2>Pengumuman</h2>
+          <div class="notice">
+            <h3>Ketentuan Perlengkapan Santri Baru</h3>
+            <p>
+              Bagi calon santri baru Pondok Pesantren Annashiiha, terdapat
+              beberapa perlengkapan yang perlu dipersiapkan sebelum mengikuti
+              kegiatan pesantren. Perlengkapan tersebut disesuaikan dengan
+              kebutuhan kegiatan ibadah dan kehidupan sehari-hari di lingkungan
+              pondok.
+            </p>
+            <p>
+              Salah satu ketentuan perlengkapan bagi santri putra adalah membawa
+              baju koko putih serta perlengkapan ibadah dasar.
+            </p>
+            <p>
+              Ketentuan perlengkapan santri baru bertujuan untuk membantu santri
+              mempersiapkan kebutuhan selama mengikuti kegiatan pendidikan dan
+              kehidupan di lingkungan pesantren.
+            </p>
+          </div>
+        </section>
+
+        <!-- ===== AGENDA ===== -->
+        <section id="agenda">
+          <h2>Agenda</h2>
+          <p class="lead">
+            Pondok Pesantren Annashiiha memiliki berbagai agenda kegiatan
+            keagamaan dan pendidikan yang dilaksanakan secara rutin. Beberapa
+            agenda utama antara lain:
+          </p>
+          <ol class="agenda">
+            <li>Pengajian rutin pembukaan tahun ajaran (Iftitah Addirosah).</li>
+            <li>
+              Kajian kitab harian sebagai bagian dari pembelajaran dan
+              pendalaman ilmu keislaman.
+            </li>
+            <li>
+              Kajian Kitab Tafsir Al-Ibriz sebagai salah satu kegiatan
+              pendalaman ilmu Al-Qur'an dan tafsir.
+            </li>
+          </ol>
+          <div class="highlight">
+            <p>
+              Berbagai kegiatan tersebut menjadi bagian dari rutinitas
+              pendidikan pesantren dan dilaksanakan sebagai upaya meningkatkan
+              pemahaman keagamaan serta membentuk karakter santri.
+            </p>
+          </div>
+        </section>
+
+        <!-- ===== ARTIKEL ===== -->
+        <section id="artikel">
+          <h2>Artikel</h2>
+          <p class="lead">
+            Pondok Pesantren Annashiiha juga menjadi ruang untuk menghadirkan
+            tulisan dan kajian mengenai pendidikan pesantren, keberagaman
+            budaya, toleransi, serta kewirausahaan.
+          </p>
+          <div class="grid-2">
+            <article class="article">
+              <div class="thumb" role="img" aria-label="Masjid Klenteng">
+                <img src="assets/masjid-klenteng.webp" alt="" />
+              </div>
+              <div class="body">
+                <h3>
+                  Pesantren Memeluk Budaya: Masjid Klenteng sebagai Simbol
+                  Toleransi di Salatiga
+                </h3>
+                <p>
+                  Mengangkat keberadaan Masjid Klenteng sebagai bagian dari
+                  lingkungan Pondok Pesantren Annashiiha serta membahas
+                  perpaduan unsur budaya dan kehidupan keagamaan yang menjadi
+                  salah satu karakteristik pesantren.
+                </p>
+              </div>
+            </article>
+            <article class="article">
+              <div class="thumb" role="img" aria-label="Pesantren entrepreneur">
+                <img src="assets/masjid2.webp" alt="" />
+              </div>
+              <div class="body">
+                <h3>
+                  Menilik Pondok Pesantren Entrepreneur dalam Kompleks Masjid
+                  Klenteng Salatiga
+                </h3>
+                <p>
+                  Membahas konsep pendidikan Pondok Pesantren Annashiiha yang
+                  memadukan pendidikan keislaman dengan kewirausahaan, termasuk
+                  pemanfaatan media digital sebagai sarana pengembangan
+                  keterampilan dan kemandirian ekonomi santri.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <a class="brand brand-footer" href="index.html">
+          <img src="assets/logo.png" alt="" />
+          <span>
+            <strong>Pondok Pesantren</strong>
+            <b>Annashiiha Salatiga</b>
+          </span>
+        </a>
+
+        <div class="social">
+          <a
+            href="https://www.youtube.com/@ponpes_annashiiha"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/ponpes_annashiiha/"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@ponpes_annashiiha"
+            aria-label="Tiktok"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-tiktok"></i
+          ></a>
         </div>
-      </article>
-      <p style="margin-top:18px">Kegiatan tersebut dihadiri oleh berbagai ulama, tokoh agama, dan tokoh masyarakat, serta menjadi momentum untuk mempererat silaturahmi antara pengasuh, pengajar, santri, alumni, dan masyarakat. Salah satu tokoh agama yang turut hadir dalam kegiatan pengajian adalah Habib Umar Muthohar.</p>
-      <div class="highlight">
-        <p>Kegiatan Iftitah Addirosah menjadi bagian dari tradisi pembukaan kegiatan pendidikan pesantren sekaligus sarana untuk memberikan motivasi dan penguatan nilai-nilai keagamaan kepada para santri.</p>
+
+        <p>Berilmu, mandiri, toleran.</p>
+
+        <div class="footer-address">
+          Kompleks Masjid Klenteng, Jl. Abiyoso No. 14<br />
+          Kelurahan Dukuh, Kecamatan Sidomukti<br />
+          Kota Salatiga, Jawa Tengah
+        </div>
       </div>
-    </section>
 
-    <!-- ===== PENGUMUMAN ===== -->
-    <section id="pengumuman">
-      <h2>Pengumuman</h2>
-      <div class="notice">
-        <h3>Ketentuan Perlengkapan Santri Baru</h3>
-        <p>Bagi calon santri baru Pondok Pesantren Annashiiha, terdapat beberapa perlengkapan yang perlu dipersiapkan sebelum mengikuti kegiatan pesantren. Perlengkapan tersebut disesuaikan dengan kebutuhan kegiatan ibadah dan kehidupan sehari-hari di lingkungan pondok.</p>
-        <p>Salah satu ketentuan perlengkapan bagi santri putra adalah membawa baju koko putih serta perlengkapan ibadah dasar.</p>
-        <p>Ketentuan perlengkapan santri baru bertujuan untuk membantu santri mempersiapkan kebutuhan selama mengikuti kegiatan pendidikan dan kehidupan di lingkungan pesantren.</p>
+      <div class="container footer-bottom">
+        <span
+          >© <span id="year"></span> Pondok Pesantren Annashiiha Salatiga</span
+        >
+        <span>Website informasi pondok pesantren</span>
       </div>
-    </section>
+    </footer>
 
-    <!-- ===== AGENDA ===== -->
-    <section id="agenda">
-      <h2>Agenda</h2>
-      <p class="lead">Pondok Pesantren Annashiiha memiliki berbagai agenda kegiatan keagamaan dan pendidikan yang dilaksanakan secara rutin. Beberapa agenda utama antara lain:</p>
-      <ol class="agenda">
-        <li>Pengajian rutin pembukaan tahun ajaran (Iftitah Addirosah).</li>
-        <li>Kajian kitab harian sebagai bagian dari pembelajaran dan pendalaman ilmu keislaman.</li>
-        <li>Kajian Kitab Tafsir Al-Ibriz sebagai salah satu kegiatan pendalaman ilmu Al-Qur'an dan tafsir.</li>
-      </ol>
-      <div class="highlight">
-        <p>Berbagai kegiatan tersebut menjadi bagian dari rutinitas pendidikan pesantren dan dilaksanakan sebagai upaya meningkatkan pemahaman keagamaan serta membentuk karakter santri.</p>
-      </div>
-    </section>
-
-    <!-- ===== ARTIKEL ===== -->
-    <section id="artikel">
-      <h2>Artikel</h2>
-      <p class="lead">Pondok Pesantren Annashiiha juga menjadi ruang untuk menghadirkan tulisan dan kajian mengenai pendidikan pesantren, keberagaman budaya, toleransi, serta kewirausahaan.</p>
-      <div class="grid-2">
-        <article class="article">
-          <div class="thumb" role="img" aria-label="Masjid Klenteng"></div>
-          <div class="body">
-            <h3>Pesantren Memeluk Budaya: Masjid Klenteng sebagai Simbol Toleransi di Salatiga</h3>
-            <p>Mengangkat keberadaan Masjid Klenteng sebagai bagian dari lingkungan Pondok Pesantren Annashiiha serta membahas perpaduan unsur budaya dan kehidupan keagamaan yang menjadi salah satu karakteristik pesantren.</p>
-          </div>
-        </article>
-        <article class="article">
-          <div class="thumb" role="img" aria-label="Pesantren entrepreneur"></div>
-          <div class="body">
-            <h3>Menilik Pondok Pesantren Entrepreneur dalam Kompleks Masjid Klenteng Salatiga</h3>
-            <p>Membahas konsep pendidikan Pondok Pesantren Annashiiha yang memadukan pendidikan keislaman dengan kewirausahaan, termasuk pemanfaatan media digital sebagai sarana pengembangan keterampilan dan kemandirian ekonomi santri.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container foot">
-    <div class="brand">
-      <div class="brand-logo" style="background:#fff;color:var(--green-900)">A</div>
-      <div class="brand-text">
-        <small>Pondok Pesantren</small>
-        <strong>Annashiiha Salatiga</strong>
-      </div>
-    </div>
-    <address>
-      Kompleks Masjid Klenteng, Jl. Abiyoso No. 14, Kelurahan Dukuh, Kecamatan Sidomukti, Kota Salatiga, Jawa Tengah
-    </address>
-    <div class="social">
-      <a href="#" aria-label="Facebook">f</a>
-      <a href="#" aria-label="Instagram">ig</a>
-      <a href="#" aria-label="YouTube">▶</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Menu mobile
-  const burger = document.getElementById('burger');
-  const menu = document.getElementById('menu');
-  burger.addEventListener('click', () => menu.classList.toggle('open'));
-
-  // Highlight sub-menu sesuai bagian yang sedang dilihat
-  const links = document.querySelectorAll('#side a');
-  const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
-      }
-    });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-  sections.forEach(s => s && observer.observe(s));
-</script>
-</body>
+    <script defer src="js/main.js"></script>
+  </body>
 </html>

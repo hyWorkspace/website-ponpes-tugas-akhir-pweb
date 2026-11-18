@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kegiatan | Pondok Pesantren Annashiiha Salatiga</title>
+<meta name="description" content="Kegiatan harian, ekstrakurikuler, organisasi, dan prestasi santri Pondok Pesantren Annashiiha Salatiga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-900:#0b3d2e;
+    --green-800:#0f4d3a;
+    --green-600:#1b6b4f;
+    --green-100:#e4efe9;
+    --gold:#c9a24b;
+    --cream:#fbfaf5;
+    --ink:#1f2a25;
+    --muted:#5d6b64;
+    --line:#e3e6df;
+    --radius:10px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.75}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* ===== Header ===== */
+  .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand-logo{width:38px;height:38px;border-radius:50%;background:var(--green-800);display:grid;place-items:center;color:#fff;font-family:'Lora',serif;font-weight:700}
+  .brand-text{line-height:1.2}
+  .brand-text small{display:block;font-size:11px;color:var(--muted)}
+  .brand-text strong{font-family:'Lora',serif;font-size:15px;color:var(--green-900)}
+  .menu{display:flex;gap:22px;list-style:none;font-size:14px;font-weight:500}
+  .menu a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+  .menu a:hover{color:var(--green-600)}
+  .menu a.active{color:var(--green-800);border-color:var(--green-800)}
+  .burger{display:none;background:none;border:0;font-size:26px;cursor:pointer;color:var(--green-900)}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;color:#fff;padding:90px 0 70px;
+    background:
+      linear-gradient(90deg,rgba(11,61,46,.88),rgba(11,61,46,.45)),
+      /* Ganti dengan foto Anda: url('images/hero-kegiatan.jpg') */
+      linear-gradient(135deg,#7a1f1a 0%,#b3392b 45%,#3b5d3a 100%);
+    background-size:cover;background-position:center;
+  }
+  .hero h1{font-family:'Lora',serif;font-size:clamp(32px,5vw,48px);line-height:1.15;margin-bottom:10px}
+  .hero p{max-width:520px;font-size:16px;opacity:.95}
+
+  /* ===== Layout ===== */
+  .page{display:grid;grid-template-columns:230px 1fr;gap:48px;padding:48px 0 64px;align-items:start}
+  .side{position:sticky;top:90px;display:flex;flex-direction:column;gap:6px}
+  .side a{padding:10px 16px;border-radius:6px;font-size:14px;font-weight:500;color:var(--muted);transition:.2s}
+  .side a:hover{background:var(--green-100);color:var(--green-800)}
+  .side a.active{background:var(--green-800);color:#fff}
+
+  .content section{margin-bottom:48px;scroll-margin-top:90px}
+  .content h2{font-family:'Lora',serif;font-size:26px;color:var(--green-900);margin-bottom:14px}
+  .content p{color:var(--muted);margin-bottom:12px}
+  .content .lead{color:var(--ink)}
+
+  /* Linimasa kegiatan harian */
+  .timeline{list-style:none;margin-top:20px;position:relative;padding-left:30px}
+  .timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--green-100)}
+  .timeline li{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 18px;margin-bottom:10px;font-size:15px;color:var(--ink)}
+  .timeline li::before{
+    content:"";position:absolute;left:-28px;top:50%;transform:translateY(-50%);width:14px;height:14px;
+    border-radius:50%;background:var(--green-600);border:3px solid var(--cream);box-shadow:0 0 0 2px var(--green-100)
+  }
+
+  /* Kartu ekstrakurikuler */
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:box-shadow .2s,transform .2s}
+  .card:hover{box-shadow:0 6px 18px rgba(11,61,46,.08);transform:translateY(-2px)}
+  .card .ci{width:40px;height:40px;border-radius:10px;background:var(--green-800);color:#fff;display:grid;place-items:center;font-size:19px;margin-bottom:10px}
+  .card .ci img{width:22px;height:22px;object-fit:contain}
+  .card h3{font-size:16px;color:var(--green-900);margin-bottom:4px}
+  .card p{font-size:14.5px;margin:0}
+
+  /* Prestasi */
+  .awards{list-style:none;display:grid;gap:14px;margin-top:18px;counter-reset:aw}
+  .awards li{
+    background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:var(--radius);
+    padding:16px 20px 16px 62px;position:relative;counter-increment:aw;font-size:15px
+  }
+  .awards li::before{
+    content:counter(aw);position:absolute;left:18px;top:14px;width:30px;height:30px;border-radius:50%;
+    background:var(--gold);color:#fff;font-family:'Lora',serif;font-weight:700;display:grid;place-items:center
+  }
+
+  .highlight{
+    margin-top:16px;padding:16px 20px;border-left:4px solid var(--green-600);
+    background:var(--green-100);border-radius:0 var(--radius) var(--radius) 0;color:var(--green-900);font-size:15px
+  }
+  .highlight p{color:var(--green-900);margin:0}
+
+  .photo{
+    margin-top:18px;height:300px;border-radius:var(--radius);overflow:hidden;position:relative;
+    /* Ganti dengan foto Anda: url('images/kegiatan-santri.jpg') */
+    background:linear-gradient(135deg,#d9d3c4,#8fa597);
+    background-size:cover;background-position:center;
+    display:flex;align-items:flex-end;
+  }
+  .photo span{width:100%;padding:12px 18px;color:#fff;font-size:13px;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+
+  /* ===== Footer ===== */
+  .site-footer{background:var(--green-900);color:#e8f1ed;padding:34px 0;font-size:13px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot .brand-text strong{color:#fff}
+  .foot .brand-text small{color:#b5cbc2}
+  .foot address{font-style:normal;max-width:360px;color:#c9dbd3}
+  .social{display:flex;gap:10px}
+  .social a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:12px;font-weight:600}
+  .social a:hover{background:rgba(255,255,255,.25)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:900px){
+    .page{grid-template-columns:1fr;gap:24px}
+    .side{position:static;flex-direction:row;overflow-x:auto;padding-bottom:6px}
+    .side a{white-space:nowrap}
+    .burger{display:block}
+    .menu{
+      position:absolute;left:0;right:0;top:68px;background:#fff;flex-direction:column;gap:0;
+      border-bottom:1px solid var(--line);display:none;padding:8px 20px 14px
+    }
+    .menu.open{display:flex}
+    .menu a{display:block;padding:10px 0}
+    .hero{padding:64px 0 48px}
+    .grid-2{grid-template-columns:1fr}
+    .photo{height:220px}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <div class="brand-logo">A</div>
+      <div class="brand-text">
+        <small>Pondok Pesantren</small>
+        <strong>Annashiiha Salatiga</strong>
+      </div>
+    </a>
+    <button class="burger" id="burger" aria-label="Buka menu">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="pendidikan.html">Pendidikan</a></li>
+      <li><a href="kegiatan.html" class="active">Kegiatan</a></li>
+      <li><a href="informasi.html">Informasi</a></li>
+      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="pendaftaran.html">Pendaftaran</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Kegiatan</h1>
+    <p>Aktivitas santri untuk membentuk karakter dan keterampilan</p>
+  </div>
+</section>
+
+<main class="container page">
+  <nav class="side" id="side" aria-label="Sub menu kegiatan">
+    <a href="#harian" class="active">Kegiatan Harian</a>
+    <a href="#ekstra">Ekstrakurikuler</a>
+    <a href="#organisasi">Organisasi</a>
+    <a href="#prestasi">Prestasi</a>
+  </nav>
+
+  <div class="content">
+
+    <!-- ===== KEGIATAN HARIAN ===== -->
+    <section id="harian">
+      <h2>Kegiatan Harian</h2>
+      <p class="lead">Kegiatan harian di Pondok Pesantren Annashiiha Salatiga disusun untuk membentuk pola kehidupan santri yang religius, disiplin, mandiri, dan produktif. Aktivitas santri memadukan kegiatan ibadah, pembelajaran keagamaan, pendidikan formal, serta pengembangan keterampilan.</p>
+      <ul class="timeline">
+        <li>Sahur bersama (saat puasa sunnah/Ramadhan)</li>
+        <li>Shalat Subuh berjamaah</li>
+        <li>Pengajian pagi / kajian kitab (Ta'limul Muta'allim) hingga pukul 06.00 WIB</li>
+        <li>Pembelajaran formal di sekolah/kampus bagi santri pelajar/mahasiswa</li>
+        <li>Praktik kewirausahaan (pemasaran digital dan wirausaha mandiri)</li>
+        <li>Pengajian sore dan tadarus Al-Qur'an</li>
+        <li>Pengajian malam setelah sholat Isya'</li>
+      </ul>
+    </section>
+
+    <!-- ===== EKSTRAKURIKULER ===== -->
+    <section id="ekstra">
+      <h2>Ekstrakurikuler</h2>
+      <p class="lead">Selain kegiatan pendidikan utama, Pondok Pesantren Annashiiha juga menyediakan berbagai kegiatan ekstrakurikuler sebagai wadah bagi santri untuk mengembangkan keterampilan, minat, bakat, dan kemampuan keagamaan.</p>
+      <div class="grid-2">
+        <div class="card">
+          <div class="ci"><img src="images/icons/kewirausahaan.png" alt=""></div>
+          <h3>Kewirausahaan</h3>
+          <p>Khususnya digital marketing dan entrepreneurship.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><img src="images/icons/sholawat.png" alt=""></div>
+          <h3>Seni Sholawat</h3>
+          <p>Sarana pengembangan seni dan kecintaan terhadap syiar Islam.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><img src="images/icons/tahfidz.png" alt=""></div>
+          <h3>Tahfidz Al-Qur'an</h3>
+          <p>Kegiatan untuk meningkatkan kemampuan santri dalam menghafal dan menjaga hafalan Al-Qur'an.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><img src="images/icons/sorogan.png" alt=""></div>
+          <h3>Sorogan Kitab</h3>
+          <p>Bagian dari pendalaman ilmu keagamaan melalui metode pembelajaran khas pesantren.</p>
+        </div>
+      </div>
+      <div class="photo" role="img" aria-label="Kegiatan santri">
+        <span>Kegiatan santri Pondok Pesantren Annashiiha</span>
+      </div>
+    </section>
+
+    <!-- ===== ORGANISASI ===== -->
+    <section id="organisasi">
+      <h2>Organisasi</h2>
+      <p class="lead">Kehidupan dan kegiatan santri di Pondok Pesantren Annashiiha turut didukung oleh kepengurusan santri. Pengelolaan kegiatan pesantren melibatkan pengurus pondok maupun mahasiswa yang diberikan tanggung jawab dalam membantu mengatur berbagai aktivitas dan kebutuhan santri.</p>
+      <div class="highlight">
+        <p>Kepengurusan tersebut menjadi sarana bagi santri untuk belajar mengenai kepemimpinan, tanggung jawab, kedisiplinan, kerja sama, dan pengelolaan kegiatan dalam kehidupan pesantren.</p>
+      </div>
+    </section>
+
+    <!-- ===== PRESTASI ===== -->
+    <section id="prestasi">
+      <h2>Prestasi</h2>
+      <p class="lead">Pondok Pesantren Annashiiha Salatiga memiliki sejumlah pencapaian dan keunggulan yang menjadi bagian dari identitas lembaga, khususnya dalam bidang toleransi, akulturasi budaya, dan pengembangan kewirausahaan. Beberapa di antaranya meliputi:</p>
+      <ol class="awards">
+        <li>Ditetapkan sebagai Ikon Toleransi dan Akulturasi Budaya di Kota Salatiga, sejalan dengan keberadaan kompleks Masjid Klenteng yang menjadi bagian dari karakteristik pondok.</li>
+        <li>Pelopor Pesantren Entrepreneur Digital di wilayah Salatiga, melalui pengembangan pendidikan kewirausahaan yang memanfaatkan media digital dan pemasaran melalui media sosial.</li>
+        <li>Menjadi salah satu destinasi rujukan studi banding mengenai keberagaman, toleransi, dan kewirausahaan bagi berbagai perguruan tinggi.</li>
+      </ol>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container foot">
+    <div class="brand">
+      <div class="brand-logo" style="background:#fff;color:var(--green-900)">A</div>
+      <div class="brand-text">
+        <small>Pondok Pesantren</small>
+        <strong>Annashiiha Salatiga</strong>
+      </div>
+    </div>
+    <address>
+      Kompleks Masjid Klenteng, Jl. Abiyoso No. 14, Kelurahan Dukuh, Kecamatan Sidomukti, Kota Salatiga, Jawa Tengah
+    </address>
+    <div class="social">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="#" aria-label="YouTube">▶</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Menu mobile
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+
+  // Highlight sub-menu sesuai bagian yang sedang dilihat
+  const links = document.querySelectorAll('#side a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => s && observer.observe(s));
+</script>
+</body>
+</html>
